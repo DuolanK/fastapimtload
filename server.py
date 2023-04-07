@@ -5,7 +5,10 @@ from fastapi.templating import Jinja2Templates
 import os
 from boto3.s3.transfer import TransferConfig, S3Transfer
 import tempfile
+import sys
+from dotenv import load_dotenv
 
+load_dotenv()
 
 BUCKET_NAME = "uploads3duo"
 
@@ -60,3 +63,4 @@ class ProgressPercentage(object):
                 percentage),
             end=''
         )
+        sys.stdout.flush()
